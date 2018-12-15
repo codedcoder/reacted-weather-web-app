@@ -1,15 +1,15 @@
 # Welcome to Reacted Weather Web App
-A humble weather web app built with ReactJS(v16.6.3), Node.JS(v10.14.1) and NPM(v6.4.1).
+A humble weather web app built with ReactJS(v16.6.3), Node.JS(v10.14.1) and NPM(v6.4.1). Base application structure was created by `create-react-app` command.
 
 ## Dependencies
 List of dependencies
 
 ### 1. [Semantic UI - ReactJS Components Library](https://react.semantic-ui.com/)(v0.84.0)
 ReactJS component library beautified with [Semantic UI](https://semantic-ui.com/) CSS classes.
-
+- `npm install --save semantic-ui-react`
 ### 2. [Axios](https://github.com/axios/axios)(v0.18.0)
 A simplified promise based HTTP client for Node.JS applications.
-
+- `npm install --save axios`
 ### 3. [Open Weather Map API](https://openweathermap.org)
 Free weather API to get current weather and forecast based on various parameters like city, zip, co-ordinates etc.
 
