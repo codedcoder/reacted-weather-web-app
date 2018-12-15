@@ -6,12 +6,15 @@ import WeatherDisplay from './WeatherDisplay';
 class App extends React.Component {
     state = {
         weatherObject: null,
-        units: 'F'
+        units: 'F',
+        errorMsg: ''
     };
 
-    onSearchSubmit = async (searchTerm, country, searchMethod, units, forecast, lat, lon) => {
+    onSearchSubmit = async (searchTerm, country, searchMethod, units, forecast, lat, lon, errorMsg) => {
         var reqParams = null;
         var endPoint = (forecast ? '/forecast' : '/weather');
+        this.setState({weatherObject: null});
+
         if (searchTerm && null !== searchTerm && '' !== searchTerm) {
             if (searchMethod === 'by-zip') {
                 reqParams = {
@@ -28,7 +31,7 @@ class App extends React.Component {
                     }
                 }
             }
-        } else {
+        } else if ((lat && null != lat && '' !== lat) && (lon && null != lon && '' !== lon)) {
             reqParams = {
                 params: {
                     lat: lat,
@@ -36,13 +39,30 @@ class App extends React.Component {
                     units: units
                 }
             }
+        } else { //possible error
+            if (errorMsg) {
+                this.setState({errorMsg: errorMsg});
+            } else {
+                this.setState({errorMsg: 'Unknown error'});
+            }
         }
         if (null != reqParams) {
-            const response = await openweather.get(endPoint, reqParams);
-            if (response.data) {
-                this.setState({weatherObject: response.data});
-                this.setState({units: ('metric' === units ? 'C' : 'F')});
-            }        
+            try {
+                const response = await openweather.get(endPoint, reqParams);
+                //console.log('api call response: ' + response);
+                if (response.data) {
+                    this.setState({weatherObject: response.data});
+                    this.setState({units: ('metric' === units ? 'C' : 'F')});
+                }
+            } catch(error) {
+                if (error.response && error.response.data && error.response.data.message) {
+                    console.log('api call error: ' + error.response.data.message);
+                    this.setState({errorMsg: error.response.data.message});
+                } else {
+                    this.setState({errorMsg: error.message});
+                }
+                console.log('network error: ' + error.message);
+            }
         }
     }
 
@@ -52,7 +72,7 @@ class App extends React.Component {
                 <div className="ui container" style={{marginTop: '10px'}}>
                     <h1>Reacted Weather App</h1>
                     <WeatherInput onSubmit={this.onSearchSubmit}/>
-                    <WeatherDisplay weather={this.state.weatherObject} units={this.state.units}/>
+                    <WeatherDisplay weather={this.state.weatherObject} units={this.state.units} errorMsg={this.state.errorMsg}/>
                 </div>
             </div>
         );
