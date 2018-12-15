@@ -45,7 +45,7 @@ class WeatherInput extends React.Component {
     renderContent() {
         return (
             <form onSubmit={this.onFormSubmit}>
-                <h2 className="ui header">Enter location information</h2>
+                <h2 className="ui header">Location information</h2>
                 <p>Default weather is based on your current location</p>
                 <div className="ui action input">
                     <input 
@@ -73,7 +73,7 @@ class WeatherInput extends React.Component {
                 <div className="field" style={{marginTop: '1em'}}>
                     <Checkbox 
                         toggle 
-                        label='Every 3 hours forecast for next 5 days'
+                        label='Show forecast for next 5 days with 3 hours intervals'
                         checked={this.state.forecast} 
                         onChange={this.onForecastChange} 
                     />
