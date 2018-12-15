@@ -8,7 +8,7 @@ A humble weather web app built with ReactJS and can be deployed to Node.js.
 
 List of dependencies
 
-### `[semantic-ui-react](https://react.semantic-ui.com/)`
+### [semantic-ui-react](https://react.semantic-ui.com/)
 
 ReactJS component library beautified with [Semantic UI](https://semantic-ui.com/) CSS classes.
 
