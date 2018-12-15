@@ -1,5 +1,5 @@
 import React from 'react';
-import { Placeholder, Message, Loader, Label, Feed, Card, Image } from 'semantic-ui-react'
+import { Placeholder, Message, Label, Feed, Card, Image } from 'semantic-ui-react'
 
 class WeatherDisplay extends React.Component {
 
