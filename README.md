@@ -1,6 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Welcome to Reacted Weather Web App
+# Welcome to Reacted Weather Web App
 
 A humble weather web app built with ReactJS and can be deployed to Node.js.
 
