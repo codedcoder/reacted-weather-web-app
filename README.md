@@ -1,10 +1,16 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Welcome to Reacted Weather Web App
 
-In the project directory, you can run:
+A humble weather web app built with ReactJS and can be deployed to Node.js.
 
-### `npm start`
+## Dependencies
+
+List of dependencies
+
+### `[semantic-ui-react](https://react.semantic-ui.com/)`
+
+ReactJS component library beautified with [Semantic UI](https://semantic-ui.com/) CSS classes.
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
