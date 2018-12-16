@@ -6,7 +6,7 @@ class WeatherDisplay extends React.Component {
     daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
     renderContent = (name, weather, country, units, centered) => {
-        var imgSrc = 'http://openweathermap.org/img/w/' + weather.weather[0].icon + '.png';
+        var imgSrc = '//openweathermap.org/img/w/' + weather.weather[0].icon + '.png';
         var thisDate = (weather.dt_txt ? new Date(weather.dt_txt) : new Date());
 
         var timeStr = "" + ((thisDate.getHours() > 12) ? thisDate.getHours() - 12 : thisDate.getHours());
